@@ -47,88 +47,63 @@ namespace MyStuff
 
         private void Update()
         {
-            // var center = _collider.bounds.center;
-            // var min = _collider.bounds.min;
-            // var max = _collider.bounds.max;
+            // var v1 = childDot003.transform.position - childDot002.transform.position;
+            // var v2 = childDot001.transform.position - childDot002.transform.position;
             //
+            // var cross = Vector3.Cross(v2, v1).normalized;
             //
-            // // get 3 points from the surface of this object.
-            // var p1 = _collider.ClosestPointOnBounds(sunlight.transform.position);
-            // var p2 = _collider.ClosestPointOnBounds(min);
-            // var p3 = _collider.ClosestPointOnBounds(max);
+            // var dot = Vector3.Dot(cross, sunlight.transform.forward);
+            // var angle = Vector3.Angle(cross, sunlight.transform.forward);
             //
-            // childDot001.transform.position = p1;
-            // childDot002.transform.position = p2;
-            // childDot003.transform.position = p3;
+            // var lightIntensity = dot;
+            // lightMeUp.SetIntensity(Mathf.Clamp01(lightIntensity));
 
+            lightMeUp.SetIntensity(GetIntensityOfLightOnSurface(childDot001.transform.position,
+                childDot002.transform.position, childDot003.transform.position, sunlight.transform.forward));
+        }
 
-            // var p1 = _collider.ClosestPointOnBounds(new Vector3(-100, 100, 100));
-            // var p2 = _collider.ClosestPointOnBounds(new Vector3(100, -100, 100));
-            // var p3 = _collider.ClosestPointOnBounds(new Vector3(00, 00, 00));
+        /// <summary>
+        /// Finds the intensity of a light hitting a surface, like sunlight hitting the surface of a solar panel.
+        /// Here the surface of the solar panel is defined by the points (p1, p2, p3), and the direction of the light
+        /// is defined as lightDirection.  We assume only one side of the solar panel can receive light; light hitting
+        /// the opposite side will have zero intensity.
+        /// The returned intensity is in the range [0, 1] and represents the relative angle of the light to the surface
+        /// of the "top" of the solar panel.  
+        /// </summary>
+        /// <param name="p1">a point on the surface</param>
+        /// <param name="p2">a point on the surface</param>
+        /// <param name="p3">a point on the surface</param>
+        /// <param name="lightDirection">a vector representing the angle the light is aiming</param>
+        /// <returns></returns>
+        public float GetIntensityOfLightOnSurface(Vector3 p1, Vector3 p2, Vector3 p3, Vector3 lightDirection)
+        {
+            var v1 = p3 - p2;
+            var v2 = p1 - p2;
 
-            // childDot001.transform.position = p1;
-            // childDot002.transform.position = p2;
-            // childDot003.transform.position = p3;
+            var cross = Vector3.Cross(v2, v1).normalized;
 
-            // Debug.DrawLine(p1 - Vector3.one, p1 + Vector3.one, Color.gray);
-            // Debug.DrawLine(p1 + Vector3.one, p1 - Vector3.one, Color.gray);
-            // Debug.DrawLine(p2 - Vector3.one, p2 + Vector3.one, Color.gray);
-            // Debug.DrawLine(p2 + Vector3.one, p2 - Vector3.one, Color.gray);
+            var dot = Vector3.Dot(cross, lightDirection);
+            var angle = Vector3.Angle(cross, lightDirection);
 
-            var v1 = childDot003.transform.position - childDot002.transform.position;
-            var v2 = childDot001.transform.position - childDot002.transform.position;
+            var lightIntensity = 0f;
+            
+            if (angle > 90f)
+            {
+                lightIntensity = (angle - 90f) / 90f;
+            }
+            
+            Debug.DrawLine(p3, p2, Color.green);
+            Debug.DrawLine(p1, p2, Color.blue);
+            Debug.DrawLine(transform.position, transform.position + 10f * cross, Color.red);
+            Debug.DrawLine(transform.position, transform.position + 10f * lightDirection, Color.yellow);
 
-            // var v1 = p3 - p1;
-            // var v2 = p2 - p1;
-
-            var cross = (-Vector3.Cross(v1, v2)).normalized;
-
-            // var vToSunlight = sunlight.transform.position - transform.position;
-
-            var dot = Vector3.Dot(cross, sunlight.transform.forward);
-            var angle = Vector3.Angle(sunlight.transform.forward, cross);
-
-            // var angle = Vector3.Angle(v2, v1);
-
-
-            // var dotProduct = Vector3.Dot(sunlight.transform.forward, cross);
-            var lightIntensity = -dot;
-            // var lightIntensity = 1 - Mathf.Abs(dot);
-            lightMeUp.SetIntensity(Mathf.Clamp01(lightIntensity));
-
-            Debug.DrawLine(transform.position, transform.position + cross * 10f, Color.magenta);
+            // Debug.DrawLine(transform.position, transform.position + cross * 10f, Color.magenta);
+            //
             Debug.Log(
-                $"{name} {nameof(lightIntensity)}: {lightIntensity} {nameof(dot)}: {dot} {nameof(angle)}: {angle} {nameof(cross)}: {cross}");
+                $"{transform.parent.name} {nameof(lightIntensity)}: {lightIntensity} {nameof(dot)}: {dot} {nameof(angle)}: {angle} {nameof(cross)}: {cross}");
 
 
-            return;
-            /*
-
-            // get 3 points from the surface of this object.
-            var center = _collider.bounds.center;
-            var min = _collider.bounds.min;
-            var max = _collider.bounds.max;
-
-            // get two vectors from the three points
-            var centerToMin = min - center;
-            var centerToMax = max - center;
-
-            // find the normal vector to this object using the cross product
-            var crossProduct= Vector3.Cross(centerToMax, centerToMin);
-            Debug.DrawLine(center, center + crossProduct, Color.blue);
-
-
-            // Compute the intensity of the sunlight's angle against the angle of this object.
-            // Directly aiming the sunlight at this object should be maximum intensity, aiming to the side should be
-            // mid-intensity, and aiming along the edge of the object should be zero.
-            // Note that we assume only one side of this object can receive sunlight, so the intensity should be zero if
-            // the sunlight is facing away from the object.
-            var dotProduct = Vector3.Dot(sunlight.transform.forward, transform.forward);
-            var lightIntensity = 1 - Mathf.Abs(dotProduct);
-            lightMeUp.SetIntensity(lightIntensity);
-
-            // Debug.Log($"{nameof(dotProduct)}: {dotProduct} {nameof(lightIntensity)}: {lightIntensity})");
-            /**/
+            return lightIntensity;
         }
     }
 }
