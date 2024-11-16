@@ -672,7 +672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight
@@ -1385,7 +1385,7 @@ Transform:
   m_GameObject: {fileID: 410087039}
   serializedVersion: 2
   m_LocalRotation: {x: 0.41559288, y: -0, z: -0, w: 0.9095507}
-  m_LocalPosition: {x: -15.7, y: 53.195854, z: 0.1}
+  m_LocalPosition: {x: -15.7, y: 39.52, z: 5.09}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1570,7 +1570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight
@@ -1655,7 +1655,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight
@@ -2388,7 +2388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight
@@ -3062,7 +3062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight
@@ -3579,7 +3579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight
@@ -3880,7 +3880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight
@@ -4303,7 +4303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight
@@ -4691,7 +4691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight
@@ -4776,7 +4776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight
@@ -4861,7 +4861,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4895555808398151758, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7748508531442402723, guid: f8a5218b52052a4458b43f1911407544, type: 3}
       propertyPath: sunlight

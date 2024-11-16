@@ -80,27 +80,25 @@ namespace MyStuff
             var v1 = p3 - p2;
             var v2 = p1 - p2;
 
-            var cross = Vector3.Cross(v2, v1).normalized;
+            var normal = Vector3.Cross(v2, v1).normalized;
 
-            var dot = Vector3.Dot(cross, lightDirection);
-            var angle = Vector3.Angle(cross, lightDirection);
+            var dot = Vector3.Dot(normal, lightDirection);
+            var angle = Vector3.Angle(normal, lightDirection);
 
             var lightIntensity = 0f;
-            
+
             if (angle > 90f)
             {
                 lightIntensity = (angle - 90f) / 90f;
             }
-            
+
             Debug.DrawLine(p3, p2, Color.green);
             Debug.DrawLine(p1, p2, Color.blue);
-            Debug.DrawLine(transform.position, transform.position + 10f * cross, Color.red);
+            Debug.DrawLine(transform.position, transform.position + 10f * normal, Color.red);
             Debug.DrawLine(transform.position, transform.position + 10f * lightDirection, Color.yellow);
 
-            // Debug.DrawLine(transform.position, transform.position + cross * 10f, Color.magenta);
-            //
             Debug.Log(
-                $"{transform.parent.name} {nameof(lightIntensity)}: {lightIntensity} {nameof(dot)}: {dot} {nameof(angle)}: {angle} {nameof(cross)}: {cross}");
+                $"{transform.parent.name} {nameof(lightIntensity)}: {lightIntensity} {nameof(dot)}: {dot} {nameof(angle)}: {angle} {nameof(normal)}: {normal}");
 
 
             return lightIntensity;
